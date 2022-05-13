@@ -10,8 +10,9 @@ Required Interfaces concept forwarded by 'Martin Fowler'. Explanation can be fol
 
 ![img.png](img.png)
 
-client : required-interface-client-layer
-service : required-interface-service-layer
+###### Example : ###### 
+client : `required-interface-client-layer` <br>
+service : `required-interface-service-layer`
 
 client need to use `PrintService` from service layer, client is already dependency of Service layer, so normally if we
 want to access PrintService class we need to add service as dependency and as result it would introduce cyclic dependency
