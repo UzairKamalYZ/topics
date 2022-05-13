@@ -8,6 +8,8 @@ This repo will be serving the base having multiple modules where concepts will b
 #### Required Interface #####
 Required Interfaces concept forwarded by 'Martin Fowler'. Explanation can be followed @ https://martinfowler.com/bliki/RequiredInterface.html
 
+![img.png](img.png)
+
 client : required-interface-client-layer
 service : required-interface-service-layer
 
