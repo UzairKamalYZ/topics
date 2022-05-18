@@ -23,5 +23,11 @@ In order to make it working, we define client base interface and we implement th
 `RequiredInterface` in client module and its implementation in service layer tells the whole story that how to enable client 
 to use services from parent layer. 
 
+### Topic no.2
+#### Mapstruct #####
+MapStruct is a code generator that greatly simplifies the implementation of mappings between Java bean types based on a convention over configuration approach.
 
+The generated mapping code uses plain method invocations and thus is fast, type-safe and easy to understand.
 
+###### Example : ###### 
+Credential(username, password) -----mapping to ---->>> CredentialDto using interface CredentialMapper
