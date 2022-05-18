@@ -30,4 +30,4 @@ MapStruct is a code generator that greatly simplifies the implementation of mapp
 The generated mapping code uses plain method invocations and thus is fast, type-safe and easy to understand.
 
 ###### Example : ###### 
-Credential(username, password) -----mapping to ---->>> CredentialDto using interface CredentialMapper
+`Credential(username, password)` -----mapping to ---->>> `CredentialDto` using interface `CredentialMapper`
