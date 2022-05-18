@@ -31,3 +31,4 @@ The generated mapping code uses plain method invocations and thus is fast, type-
 
 ###### Example : ###### 
 `Credential(username, password)` -----mapping to ---->>> `CredentialDto` using interface `CredentialMapper`
+for more examples explore  https://github.com/mapstruct/mapstruct-examples
