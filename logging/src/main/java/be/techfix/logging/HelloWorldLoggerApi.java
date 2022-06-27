@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Log4j2
 public class HelloWorldLoggerApi {
-    public static final Marker CONFIDENTIAL = org.apache.logging.log4j.MarkerManager.getMarker("SPECIFIC");
+    public static final Marker SPECIFIC = org.apache.logging.log4j.MarkerManager.getMarker("SPECIFIC");
     @GetMapping("/hello")
     public String hello(@RequestParam("user") String user) {
         log.info("----Hello----");
-        log.info( CONFIDENTIAL,user+" saying hello ");
+        log.info( SPECIFIC,user+" saying hello ");
         return "OK";
     }
 }
