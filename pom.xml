@@ -11,8 +11,8 @@
     <modules>
         <module>required-interfaces-client-layer</module>
         <module>required-interfaces-service-layer</module>
-        <module>vault-poc</module>
         <module>mapstruct</module>
+        <module>logging</module>
     </modules>
 
     <parent>
@@ -21,6 +21,10 @@
         <version>2.6.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
 
     <build>
         <pluginManagement>
@@ -37,6 +41,13 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+
+            </plugin>
+        </plugins>
     </build>
     <dependencyManagement>
         <dependencies>
