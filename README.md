@@ -35,7 +35,7 @@ The generated mapping code uses plain method invocations and thus is fast, type-
   for more examples explore  https://github.com/mapstruct/mapstruct-examples
 
 ### Topic no.3
-#### Markers for Log4j #####
+#### Log4j Marker Filter #####
 Log4j has ability to distinguish between logs and funnel out into dedicated files, this all can be achieved by using
 Marker filter.
 Module <Strong> logging </Strong> has implementation of Maker concepts, where various logs are funnel out to their dedicated log files. 
