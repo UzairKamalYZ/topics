@@ -39,5 +39,5 @@ The generated mapping code uses plain method invocations and thus is fast, type-
 Log4j has ability to distinguish between logs and funnel out into dedicated files, this all can be achieved by using
 Marker filter.
 Module <Strong> logging </Strong> has implementation of Maker concepts, where various logs are funnel out to their dedicated log files. 
-`log42.xml` has implementation of seperation logic. 
+`log42.xml` has implementation of seperation logic. <BR>
 `            <MarkerFilter marker="SPECIFIC" onMatch="ACCEPT" onMismatch="DENY"></MarkerFilter>`
