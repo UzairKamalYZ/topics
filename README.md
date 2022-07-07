@@ -41,3 +41,12 @@ Marker filter.
 Module <Strong> logging </Strong> has implementation of Maker concepts, where various logs are funnel out to their dedicated log files. 
 `log42.xml` has implementation of seperation logic. <BR>
 `            <MarkerFilter marker="SPECIFIC" onMatch="ACCEPT" onMismatch="DENY"></MarkerFilter>`
+
+
+### Topic no.4
+#### Custom Annotation #####
+Module `customeannotation` will contain code to create custom annotation and then process with two approaches
+##### Simple Processor #####
+Normal Annotation processor 
+##### AOP Processor ##### 
+Aspect Oriented Annotation
