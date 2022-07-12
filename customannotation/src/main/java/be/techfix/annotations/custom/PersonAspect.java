@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,7 +13,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PersonAspect {
 
-    @Before(value = "@annotation(be.techfix.annotations.custom.Identifier) && execution(public * *(..)) && args(person)", argNames = "joinPoint,person")
+    @Pointcut("@annotation(be.techfix.annotations.custom.Identifier)")
+    public void identifiers() {}
+    @Pointcut("execution(public * *(..)) && args(person)")
+    public void methods(Person person){}
+
+    @Before(value = " identifiers() && methods(person)", argNames = "joinPoint,person")
     public void verifyAge(JoinPoint joinPoint, Person person) {
         System.out.println("------------------BEFORE--------------------");
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
