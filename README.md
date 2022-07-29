@@ -13,6 +13,10 @@
       - [Custom Annotation](#custom-annotation)
         * [Simple Processor](#simple-processor)
         * [AOP Processor](#aop-processor)
+    + [Topic no.4](#topic-no4)
+      - [Awaitility ](#awaitility )
+            + [Example :](#example---1)
+
         
 ## Introduction:
 This repo will be serving the base having multiple modules where concepts will be practise. 
@@ -66,3 +70,11 @@ Normal Annotation processor
 Aspect Oriented Annotation
 Having @Identifier annotation on method, based on age it will be executed and when the age is below the limit 
 it will throw exception and will not provide required data for that person. 
+
+### Topic no.4
+#### Awaitility  #####
+Awaitility is a small Java DSL for synchronizing asynchronous operations
+###### Example : ###### 
+A simple asynchronous service which increments a counter and sleep for some time before get initialized. 
+The example is proof of concept that awaitility make the test wait until a condition is meet and then 
+assert the output. 
