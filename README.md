@@ -13,6 +13,8 @@
         * [AOP Processor](#aop-processor)
     + [Topic no.5](#topic-no5)
       - [Awaitility ](#Awaitility )
+    + [Topic no.6](#topic-no6)
+      - [Junit5-Examples ](#Junit-5 Examples)
 
         
 ## Introduction:
@@ -60,7 +62,7 @@ Module <Strong> logging </Strong> has implementation of Maker concepts, where va
 
 ### Topic no.4
 #### Custom Annotation #####
-Module `customeannotation` will contain code to create custom annotation and then process with two approaches
+Module `customannotation` will contain code to create custom annotation and then process with two approaches
 ##### Simple Processor #####
 Normal Annotation processor 
 ##### AOP Processor ##### 
@@ -75,3 +77,11 @@ Awaitility is a small Java DSL for synchronizing asynchronous operations
 A simple asynchronous service which increments a counter and sleep for some time before get initialized. 
 The example is proof of concept that awaitility make the test wait until a condition is meet and then 
 assert the output. 
+
+### Topic no.6 
+#### Junit-5 Examples ####
+Here, i will try to provide examples for 
+* Extension
+  * Tried three extension like Parameter resolver, Exceptionhandler and postprocessor exception
+  * LoggingExtensionTest is describing the test usge of all above extensions. 
+* Parameterized Tests
