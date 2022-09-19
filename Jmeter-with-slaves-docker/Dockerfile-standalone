@@ -1,0 +1,53 @@
+FROM harbor.tools02.openshift.dc3.acc.isabelteam.io/dockerhub/jmeter:5.4
+
+#################### CONFIG ####################
+ENV JMETER_PLUGIN_FOLDER $JMETER_HOME/lib/ext
+
+ENV MOUNT_LOCATION /config/mount
+
+ENV TEST_PLAN_DIRECTORY $MOUNT_LOCATION/test-plan
+ENV TEST_PLAN_LOCATION $TEST_PLAN_DIRECTORY/scenario.jmx
+#ENV TEST_PROPERTIES_DIRECTORY $MOUNT_LOCATION/test-properties
+#ENV TEST_PROPERTIES_LOCATION $TEST_PROPERTIES_DIRECTORY/test.properties
+#ENV TEST_DATA_DIRECTORY $MOUNT_LOCATION/test-data
+#ENV TEST_DATA_LOCATION $TEST_DATA_DIRECTORY/users.csv
+
+ENV PROMETHEUS_PLUGIN_VERSION 0.6.0
+ENV PROMETHEUS_PLUGIN_URL https://repo1.maven.org/maven2/com/github/johrstrom/jmeter-prometheus-plugin/$PROMETHEUS_PLUGIN_VERSION/jmeter-prometheus-plugin-$PROMETHEUS_PLUGIN_VERSION.jar
+ENV CUSTOM_THREAD_GROUPS_PLUGIN_VERSION 2.10
+ENV CUSTOM_THREAD_GROUPS_PLUGIN_URL https://repo1.maven.org/maven2/kg/apc/jmeter-plugins-casutg/${CUSTOM_THREAD_GROUPS_PLUGIN_VERSION}/jmeter-plugins-casutg-${CUSTOM_THREAD_GROUPS_PLUGIN_VERSION}.jar
+ENV CUSTOM_CMN_PLUGIN_VERSION 0.7
+ENV CUSTOM_CMN_PLUGIN_URL https://repo1.maven.org/maven2/kg/apc/jmeter-plugins-cmn-jmeter/${CUSTOM_CMN_PLUGIN_VERSION}/jmeter-plugins-cmn-jmeter-${CUSTOM_CMN_PLUGIN_VERSION}.jar
+
+################################################
+
+# Prometheus exporter download & expose
+RUN curl -sLSf "$PROMETHEUS_PLUGIN_URL" -o $JMETER_PLUGIN_FOLDER/jmeter-prometheus-plugin.jar
+# Custom thread group download & expose
+RUN curl -sLSf "$CUSTOM_THREAD_GROUPS_PLUGIN_URL" -o $JMETER_PLUGIN_FOLDER/custom-thread-groups-plugin.jar
+# Custom CMN download & expose
+RUN curl -sLSf "$CUSTOM_CMN_PLUGIN_URL" -o $JMETER_PLUGIN_FOLDER/custom-cmn-plugin.jar
+
+# Create mounts
+RUN mkdir -p $MOUNT_LOCATION $TEST_PLAN_DIRECTORY $TEST_PROPERTIES_DIRECTORY $TEST_DATA_DIRECTORY
+VOLUME $TEST_PLAN_DIRECTORY $TEST_PROPERTIES_DIRECTORY $TEST_DATA_DIRECTORY
+
+# Add our user and group and assign ownership to necessary locations
+RUN addgroup -S jmeter && adduser -S jmeter -G jmeter
+
+COPY ./jmeter/bin/system-master.properties $JMETER_HOME/bin/system.properties
+COPY ./jmeter/bin/log4j2.xml $JMETER_HOME/bin/log4j2.xml
+
+RUN chmod 644 $JMETER_HOME/bin/system.properties
+RUN chmod 644 $JMETER_HOME/bin/log4j2.xml
+
+RUN chown -R jmeter:jmeter $JMETER_HOME $MOUNT_LOCATION
+USER jmeter
+
+# Start jmeter with arguments
+ENTRYPOINT jmeter \
+    -n \
+    -t "${TEST_PLAN_LOCATION}" \
+    -j /proc/self/fd/1 \
+    -q "${TEST_PROPERTIES_LOCATION}"
+

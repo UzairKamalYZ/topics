@@ -1,0 +1,55 @@
+version: "2.1"
+services:
+  jmeter-master:
+    build:
+      dockerfile: Dockerfile-master
+      context: .
+    environment:
+      - SLAVE_HOSTS=jmeter-slave-0,jmeter-slave-1
+    depends_on:
+      - jmeter-slave-0
+      - jmeter-slave-1
+     # - jmeter-slave-2
+    volumes:
+      - ./scenario.jmx:/config/mount/test-plan/scenario.jmx
+  #    - ./jmeter/bin/test.properties:/config/mount/test-properties/test.properties
+    networks:
+      - jmeter-network
+  jmeter-slave-0:
+    build:
+      dockerfile: Dockerfile-slave
+      context: .
+    environment:
+      - HOSTNAME=1
+    ports:
+      - "9270:9270"
+   #volumes:
+      #- ./data/keycloak-users-1.csv:/config/mount/test-data/testdata.csv
+    networks:
+      - jmeter-network
+#
+  jmeter-slave-1:
+    build:
+      dockerfile: Dockerfile-slave
+      context: .
+    ports:
+      - "9271:9270"
+    #volumes:
+      #- ./data/keycloak-users-1.csv:/config/mount/test-data/testdata.csv
+    networks:
+      - jmeter-network
+
+##
+#  jmeter-slave-2:
+#    build:
+#      dockerfile: Dockerfile-slave
+#      context: .
+#    ports:
+#      - "9272:9270"
+#    volumes:
+#      - ./data/keycloak-users-2.csv:/config/mount/test-data/keycloak-users.csv
+#    networks:
+#      - jmeter-network
+
+networks:
+  jmeter-network:

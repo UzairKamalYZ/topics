@@ -15,6 +15,8 @@
       - [Awaitility ](#Awaitility )
     + [Topic no.6](#topic-no6)
       - [Junit5-Examples ](#Junit-5 Examples)
+    + [Topic no.7](#topic-no6)
+          - [Jmeter-Dockerized](#Jmeter-Dockerized)
 
         
 ## Introduction:
@@ -85,3 +87,10 @@ Here, i will try to provide examples for
   * Tried three extension like Parameter resolver, Exceptionhandler and postprocessor exception
   * LoggingExtensionTest is describing the test usge of all above extensions. 
 * Parameterized Tests
+ 
+### Topic no.7 
+#### Jmeter-Dockerized ####
+Run a basic hello world Jmeter testing scenario in dockerized envorinment with master-slave
+configuration.
+`docker-compose.yml` will spawn Master docker and its slaved to run a basic jmeter scenario prepared 
+in jmeter i.e `scenario.jmx`. A Promotheus metric is also provided which will be used in the upcoming example with Grafana dashboard. 
