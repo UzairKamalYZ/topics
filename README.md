@@ -90,7 +90,7 @@ Here, i will try to provide examples for
  
 ### Topic no.7 
 #### Jmeter-Dockerized ####
-Run a basic hello world Jmeter testing scenario in dockerized envorinment with master-slave
+Run a basic hello world Jmeter testing scenario in dockerized environment with master-slave
 configuration.
 `docker-compose.yml` will spawn Master docker and its slaved to run a basic jmeter scenario prepared 
 in jmeter i.e `scenario.jmx`. A Promotheus metric is also provided which will be used in the upcoming example with Grafana dashboard. 
