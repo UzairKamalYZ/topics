@@ -1,11 +1,38 @@
 version: "2.1"
 services:
+  grafana:
+    container_name: GRAFANA
+    image: grafana/grafana:latest
+    networks:
+      - jmeter-network
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_BASIC_ENABLED=false
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning/
+      - ./grafana/config.ini:/etc/grafana/config.ini
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+  prometheus:
+    container_name: PROMETHEUS
+    image: prom/prometheus
+    depends_on:
+      - grafana
+    volumes:
+      - ./prometheus:/etc/prometheus
+    ports:
+      - "9090:9090"
+
   jmeter-master:
+    container_name: MASTER
     build:
       dockerfile: Dockerfile-master
       context: .
     environment:
       - SLAVE_HOSTS=jmeter-slave-0,jmeter-slave-1
+     # - SLAVE_HOSTS=jmeter-slave-0
     depends_on:
       - jmeter-slave-0
       - jmeter-slave-1
@@ -16,6 +43,7 @@ services:
     networks:
       - jmeter-network
   jmeter-slave-0:
+    container_name: SLAVE-0
     build:
       dockerfile: Dockerfile-slave
       context: .
@@ -29,6 +57,7 @@ services:
       - jmeter-network
 #
   jmeter-slave-1:
+    container_name: SLAVE-1
     build:
       dockerfile: Dockerfile-slave
       context: .
@@ -38,18 +67,6 @@ services:
       #- ./data/keycloak-users-1.csv:/config/mount/test-data/testdata.csv
     networks:
       - jmeter-network
-
-##
-#  jmeter-slave-2:
-#    build:
-#      dockerfile: Dockerfile-slave
-#      context: .
-#    ports:
-#      - "9272:9270"
-#    volumes:
-#      - ./data/keycloak-users-2.csv:/config/mount/test-data/keycloak-users.csv
-#    networks:
-#      - jmeter-network
 
 networks:
   jmeter-network:
