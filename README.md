@@ -93,4 +93,16 @@ Here, i will try to provide examples for
 Run a basic hello world Jmeter testing scenario in dockerized environment with master-slave
 configuration.
 `docker-compose.yml` will spawn Master docker and its slaved to run a basic jmeter scenario prepared 
-in jmeter i.e `scenario.jmx`. A Promotheus metric is also provided which will be used in the upcoming example with Grafana dashboard. 
+in jmeter i.e `scenario.jmx`. 
+#### Jmeter-Prometheus-Grafana ####
+Grafana : http://localhost:3000 <BR>
+Prometheus: http://localhost:9090 <BR>
+<Strong><i>Master-Slave0-Slave1 ---(sendData)---> Prometheus<i></Strong>
+##### How to Run  #####
+* Comment out all except Grafana 
+* docker-compose up --build
+* Comment Grafana and un comment others 
+* docker-compose up --build ( it will start the jmeter test. )
+<BR><Strong><i>
+Note: Going to improve this as i need a better solution to keep the same network and easy setup of all components.
+  </i></Strong>
