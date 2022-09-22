@@ -1,26 +1,30 @@
 version: "2.1"
 services:
-
+  grafana:
+    container_name: GRAFANA
+    image: grafana/grafana:latest
+    networks:
+      - jmeter-network
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_BASIC_ENABLED=false
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning/
+      - ./grafana/config.ini:/etc/grafana/config.ini
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
   prometheus:
     container_name: PROMETHEUS
     image: prom/prometheus
+    depends_on:
+      - grafana
     volumes:
       - ./prometheus:/etc/prometheus
     ports:
       - "9090:9090"
- #grafana:
- #  container_name: GRAFANA
- #  image: grafana/grafana:latest
- #  networks:
- #    - jmeter-network
- #  ports:
- #    - "3000:3000"
- #  environment:
- #    - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
- #    - GF_AUTH_ANONYMOUS_ENABLED=true
- #    - GF_AUTH_BASIC_ENABLED=false
- #  volumes:
- #     - ./grafana:/etc/grafana/provisioning/
+
   jmeter-master:
     container_name: MASTER
     build:
