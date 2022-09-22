@@ -99,10 +99,9 @@ Grafana : http://localhost:3000 <BR>
 Prometheus: http://localhost:9090 <BR>
 <Strong><i>Master-Slave0-Slave1 ---(sendData)---> Prometheus<i></Strong>
 ##### How to Run  #####
-* Comment out all except Grafana 
 * docker-compose up --build
-* Comment Grafana and un comment others 
-* docker-compose up --build ( it will start the jmeter test. )
-<BR><Strong><i>
-Note: Going to improve this as i need a better solution to keep the same network and easy setup of all components.
-  </i></Strong>
+
+Note: Ideally all should work fine, at the time of writing this note i had to execut Grafana 
+and prometheus separate and then put prometheus datasource in Grafana manually. 
+And then run the Jmeter dockerized master and slaves. 
+
