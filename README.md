@@ -99,9 +99,7 @@ Grafana : http://localhost:3000 <BR>
 Prometheus: http://localhost:9090 <BR>
 <Strong><i>Master-Slave0-Slave1 ---(sendData)---> Prometheus<i></Strong>
 ##### How to Run  #####
-* docker-compose up --build
-
-Note: Ideally all should work fine, at the time of writing this note i had to execut Grafana 
-and prometheus separate and then put prometheus datasource in Grafana manually. 
-And then run the Jmeter dockerized master and slaves. 
-
+* `docker-compose --profile monitor up --build`
+* add prometheus datasource to Grafana (http://localhost:9090 - Access 'Browser')
+* `docker-compose --profile jmeter up --build -d` <BR>
+Note: Ideally no profile is required but to till the writing of this note i was not able to correctly configure datasource 

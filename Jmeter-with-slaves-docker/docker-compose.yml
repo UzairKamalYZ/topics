@@ -1,8 +1,10 @@
-version: "2.1"
+version: "3.9"
 services:
   grafana:
     container_name: GRAFANA
     image: grafana/grafana:latest
+    profiles:
+      - monitor
     networks:
       - jmeter-network
     ports:
@@ -18,6 +20,8 @@ services:
   prometheus:
     container_name: PROMETHEUS
     image: prom/prometheus
+    profiles:
+      - monitor
     depends_on:
       - grafana
     volumes:
@@ -27,6 +31,8 @@ services:
 
   jmeter-master:
     container_name: MASTER
+    profiles:
+      - jmeter
     build:
       dockerfile: Dockerfile-master
       context: .
@@ -44,6 +50,8 @@ services:
       - jmeter-network
   jmeter-slave-0:
     container_name: SLAVE-0
+    profiles:
+      - jmeter
     build:
       dockerfile: Dockerfile-slave
       context: .
@@ -58,6 +66,8 @@ services:
 #
   jmeter-slave-1:
     container_name: SLAVE-1
+    profiles:
+      - jmeter
     build:
       dockerfile: Dockerfile-slave
       context: .
