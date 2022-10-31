@@ -1,6 +1,6 @@
 #     Topics 
 - [Topics](#topics)
-  * [Introduction:](#introduction-)
+  * [Introduction:](#introduction)
     + [Topic no.1](#topic-no1)
       - [Required Interface](#required-interface)
     + [Topic no.2](#topic-no2)
@@ -14,9 +14,11 @@
     + [Topic no.5](#topic-no5)
       - [Awaitility ](#Awaitility )
     + [Topic no.6](#topic-no6)
-      - [Junit-5 Examples](#Junit-5 Examples)
-    + [Topic no.7](#topic-no6)
+      - [Junit-5 Examples](#Junit-5-Examples)
+    + [Topic no.7](#topic-no7)
           - [Jmeter-Dockerized](#Jmeter-Dockerized)
+    + [Topic no.8](#topic-no8)
+          - [Vault-Example](#Vault-Example)
 
         
 ## Introduction:
@@ -81,7 +83,7 @@ The example is proof of concept that awaitility make the test wait until a condi
 assert the output. 
 
 ### Topic no.6 
-#### Junit-5 Examples ####
+#### Junit-5-Examples ####
 Here, i will try to provide examples for 
 * Extension
   * Tried three extension like Parameter resolver, Exceptionhandler and postprocessor exception
@@ -103,3 +105,12 @@ Prometheus: http://localhost:9090 <BR>
 * add prometheus datasource to Grafana (http://localhost:9090 - Access 'Browser')
 * `docker-compose --profile jmeter up --build -d` <BR>
 Note: Ideally no profile is required but to till the writing of this note i was not able to correctly configure datasource 
+
+### Topic no.8
+#### Vault-Example #####
+A docker vault in development mode spins up and basic credentials added 
+via `http://localhost:8200` and could be read with help of VaultTemplate class. 
+##### How to Run  #####
+`http://localhost:8200`\
+`docker-compose up -d` 
+
