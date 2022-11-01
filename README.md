@@ -113,5 +113,4 @@ via `http://localhost:8200` and could be read with help of VaultTemplate class.
 ##### How to Run  #####
 `http://localhost:8200`\
 `docker-compose up -d`\
-login with token `vault`
-
+Application can be run with env variable i.e VAULT_TOKEN=vault;VAULT_SERVER=http://localhost:8200 in run configuration
