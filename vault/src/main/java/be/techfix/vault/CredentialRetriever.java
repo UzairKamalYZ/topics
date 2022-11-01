@@ -1,10 +1,13 @@
 package be.techfix.vault;
 
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.vault.core.VaultTemplate;
 import org.springframework.vault.support.VaultResponse;
 
-@Service
+import java.util.Map;
+
+@Configuration
 public class CredentialRetriever {
     final VaultTemplate vaultTemplate;
 
@@ -12,7 +15,14 @@ public class CredentialRetriever {
         this.vaultTemplate = vaultTemplate;
     }
 
-    public VaultResponse getCredentials() {
-        return vaultTemplate.read("secret/data/be.techfix.example.vault-demo");
+    @Bean
+    public Credentials getCredentials(){
+        VaultResponse response = vaultTemplate.read("secret/data/be.techfix.example.vault-demo");
+        Map<String, String> data = (Map<String, String>) response.getData().get("data");
+        return Credentials.builder()
+                .user(data.get("user"))
+                .password(data.get("password"))
+                .build();
     }
+
 }

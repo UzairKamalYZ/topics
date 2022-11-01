@@ -112,5 +112,6 @@ A docker vault in development mode spins up and basic credentials added
 via `http://localhost:8200` and could be read with help of VaultTemplate class. 
 ##### How to Run  #####
 `http://localhost:8200`\
-`docker-compose up -d` 
+`docker-compose up -d`\
+login with token `vault`
 

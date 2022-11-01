@@ -3,9 +3,6 @@ package be.techfix.vault;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.vault.support.VaultResponse;
-
-import java.util.Map;
 
 @SpringBootApplication
 public class Main {
@@ -16,11 +13,8 @@ public class Main {
     }
 
     private static void getVaultValues(ConfigurableApplicationContext context) {
-        CredentialRetriever credentialRetriever = context.getBeanFactory().getBean(CredentialRetriever.class);
-        VaultResponse credentials = credentialRetriever.getCredentials();
-        Map<String, String> data = (Map<String, String>) credentials.getData().get("data");
-        System.out.println(data.get("user"));
-        System.out.println(data.get("password"));
+        Credentials credentials1 = context.getBeanFactory().getBean(Credentials.class);
+        System.out.println(credentials1);
     }
 
 }

@@ -13,11 +13,12 @@ public class VaultConfig extends AbstractVaultConfiguration {
     public ClientAuthentication clientAuthentication() {
         return new TokenAuthentication("vault");
     }
-
     @Override
     public VaultEndpoint vaultEndpoint() {
         VaultEndpoint vaultEndpoint = VaultEndpoint.create("localhost", 8200);
         vaultEndpoint.setScheme("http");
         return vaultEndpoint;
     }
+
+
 }
