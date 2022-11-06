@@ -3,6 +3,7 @@ package be.techfix.junit5examples;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import be.techfix.junit5examples.extensions.CustomCallBackExtension;
 import be.techfix.junit5examples.extensions.ExceptionHandlingExtension;
 import be.techfix.junit5examples.extensions.LoggingParameterExtension;
 import be.techfix.junit5examples.extensions.LoggingPostProcessorExtensions;
@@ -48,6 +49,11 @@ public class LoggingExtensionsTest {
 
     }
 
+    @Test
+    @ExtendWith(CustomCallBackExtension.class)
+    void should_log_timings_before_and_after_execution() {
+        postprocessorLogger.info("...This something log coming from PostProcessor Logger......");
+    }
 
     class Tester {
         public void testMethod(Integer param1, Integer param2) throws Throwable {
