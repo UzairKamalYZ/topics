@@ -16,13 +16,14 @@
         <module>customannotation</module>
         <module>awaitility-test</module>
         <module>junit5-examples</module>
+        <module>codility-solutions</module>
         <module>vault</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.5</version>
+        <version>2.6.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
