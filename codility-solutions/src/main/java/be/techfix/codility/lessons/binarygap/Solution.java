@@ -1,4 +1,4 @@
-package be.techfix.problem.binarygap;
+package be.techfix.codility.lessons.binarygap;
 
 import java.util.ArrayList;
 import java.util.Collections;

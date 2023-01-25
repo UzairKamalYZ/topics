@@ -15,11 +15,13 @@ Examples:
 
 1. Given A = ["RGBW", "GBRW"], the function should return 1.
 
-The image illustrates the first example test.
+The image illustrates the first example test.<BR>
+![img_2.png](img_2.png)
 
 Tom can rotate the second tile counter-clockwise once to obtain a pretty sequence.
 
-The image illustrates the answer to the first example test.
+The image illustrates the answer to the first example test.<BR>
+![img_3.png](img_3.png)
 
 2. Given A = ["WBGR", "WBGR", "WRGB", "WRGB", "RBGW"], the function should return 4.
 
@@ -33,9 +35,12 @@ The image illustrates the answer to the second example test.
 
 The image illustrates the third example test.
 
+
+
 Tom can rotate the first tile clockwise twice to obtain a pretty sequence.
 
-The image illustrates the answer to the third example test.
+The image illustrates the answer to the third example test.<BR>
+
 
 4. Given A = ["GBRW", "RBGW", "BWGR", "BRGW"], the function should return 2.
 
