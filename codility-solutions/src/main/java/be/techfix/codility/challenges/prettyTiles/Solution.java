@@ -2,7 +2,7 @@ package be.techfix.codility.challenges.prettyTiles;
 
 import java.util.Arrays;
 
-class Solution {
+public class Solution {
 
     public int solution(String[] input) {
 
