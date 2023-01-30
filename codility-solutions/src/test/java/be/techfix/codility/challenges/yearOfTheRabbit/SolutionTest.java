@@ -1,4 +1,4 @@
-package be.techfix.codility.challenges.chineesNewYear;
+package be.techfix.codility.challenges.yearOfTheRabbit;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

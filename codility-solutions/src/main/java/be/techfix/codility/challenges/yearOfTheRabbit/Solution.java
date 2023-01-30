@@ -1,4 +1,4 @@
-package be.techfix.codility.challenges.chineesNewYear;
+package be.techfix.codility.challenges.yearOfTheRabbit;
 
 import java.util.ArrayList;
 import java.util.List;
