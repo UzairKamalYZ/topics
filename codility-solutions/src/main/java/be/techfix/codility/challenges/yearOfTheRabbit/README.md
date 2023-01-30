@@ -43,3 +43,4 @@ Copyright 2009–2023 by Codility Limited. All Rights Reserved. Unauthorized cop
 <BR> Certificate(https://app.codility.com/cert/view/certK42P57-9NKCN3K5SY45Z6SC/)</Strong>
 
 Honestly : I would prefer far more clean code than this. Would improve in the future. 
+![img.png](img.png)
