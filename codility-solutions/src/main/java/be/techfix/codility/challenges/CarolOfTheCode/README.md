@@ -1,3 +1,6 @@
+
+<Strong> :::::: Not Complete Solution :::::  </Strong>
+
 Tom is decorating the pavement in his garden with N square tiles. Each tile is divided into four triangles of different colors (white - 'W', red - 'R', green - 'G' and blue - 'B'). A tile is described as a string of four characters denoting respectively, the color of the upper, right, bottom and left triangle. For example, the tile in the figure below is described as "WRGB".
 
 The image illustrates an examples of tile <BR>

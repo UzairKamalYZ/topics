@@ -1,4 +1,4 @@
-package be.techfix.codility.challenges.prettyTiles;
+package be.techfix.codility.challenges.CarolOfTheCode;
 
 import java.util.Arrays;
 
