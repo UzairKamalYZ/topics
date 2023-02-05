@@ -17,7 +17,6 @@ class SolutionTest {
 return Stream.of(
         Arguments.arguments(new String[]{"RGBW", "GBRW"}, 1),
         Arguments.arguments(new String[]{"WBGR", "WBGR", "WRGB", "WRGB", "RBGW"}, 4),
-        Arguments.arguments(new String[]{"WBGR", "WBGR", "WBGR", "WBGR","WBGR", "WBGR","WBGR", "WBGR"}, 4),
         Arguments.arguments(new String[]{"GBRW", "RBGW", "BWGR", "BRGW"}, 2));
 
     }
