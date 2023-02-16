@@ -1,0 +1,16 @@
+{
+  "name": "react-skeleton",
+  "version": "0.0.1",
+  "description": "A skeleton for new projects build with react",
+  "scripts": {
+    "develop": "npm run develop-common-storybook && npm run develop-common-rollup",
+    "storybook": "cd common && npm run storybook",
+    "develop-common-storybook": "cd common && npm run storybook",
+    "develop-common-rollup": "cd common && npm run watch",
+    "build": "npm run build-common",
+    "build-common": "cd common && npm run build"
+  },
+  "dependencies": {
+    "webpack": "^5.75.0"
+  }
+}

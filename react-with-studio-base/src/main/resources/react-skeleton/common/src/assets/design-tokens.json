@@ -1,0 +1,8 @@
+{
+  "text": "#2c3e50",
+  "grey": "#dad7d5",
+  "lightGrey": "#f8f9fa",
+  "transitionRegular": "0.3s ease-in-out",
+  "transitionFast": "0.15s ease-in-out",
+  "borderRadiusRegular": "4px"
+}
