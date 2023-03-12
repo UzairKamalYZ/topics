@@ -18,6 +18,7 @@
         <module>junit5-examples</module>
         <module>codility-solutions</module>
         <module>vault</module>
+        <module>server-sent-event</module>
     </modules>
 
     <parent>
