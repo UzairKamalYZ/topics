@@ -13,9 +13,9 @@ public class Level2Validation<T> implements ValidatorChain<T> {
 
     @Override
     public Boolean validate(T request) throws Exception {
-        log.info("Level 2 :: Validating request: " + request);
+        log.info("\n Level 2 :: Validating request: " + request);
         if(request == null) {
-            throw new Exception("Request is null");
+            throw new Exception("Level 2 Validation Exception : Request is null");
         }
         return this.chain.validate(request);
     }

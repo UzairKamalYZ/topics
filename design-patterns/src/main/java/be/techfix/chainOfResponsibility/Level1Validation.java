@@ -13,7 +13,7 @@ public class Level1Validation<T> implements ValidatorChain<T> {
 
     @Override
     public Boolean validate(T request) throws Exception {
-        log.info("Level 1 :: Validating request: " + request);
+        log.info("\n Level 1 :: Validating request: " + request);
         if(request == null) {
             throw new Exception("Request is null");
         }
