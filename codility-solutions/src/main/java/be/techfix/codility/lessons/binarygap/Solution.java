@@ -28,6 +28,6 @@ class Solution {
             }
 
         }
-        return zeroSequences.size() > 0 ? Collections.max(zeroSequences) : Integer.valueOf(0);
+        return !zeroSequences.isEmpty() ? Collections.max(zeroSequences) : Integer.valueOf(0);
     }
 }

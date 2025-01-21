@@ -20,6 +20,7 @@
         <module>vault</module>
         <module>server-sent-event</module>
         <module>design-patterns</module>
+        <module>misc</module>
     </modules>
 
     <parent>
